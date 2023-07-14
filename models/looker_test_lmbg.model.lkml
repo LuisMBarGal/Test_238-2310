@@ -3866,6 +3866,12 @@ explore: user {
     sql_on: ${user.version_set_id} = ${version_set.id} ;;
     relationship: many_to_one
   }
+
+  join: ndt_looker_user {
+    type: left_outer
+    sql_on: ${user.id} = ${ndt_looker_user.id} ;;
+    relationship: many_to_one
+  }
 }
 
 explore: user_access_filter {
