@@ -1,4 +1,5 @@
 view: access_token {
+  # linna test git
   sql_table_name: gcpm238.access_token ;;
   drill_fields: [outgoing_access_token_id]
 
