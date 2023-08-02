@@ -26,11 +26,13 @@ view: access_token {
     type: number
     # hidden: yes
     sql: ${TABLE}.credentials_api3_id ;;
+    label: "𝑻𝒆𝒔𝒕"
   }
 
   dimension: encrypted_code {
     type: string
     sql: ${TABLE}.encrypted_code ;;
+    label: "𝙏𝙚𝙨𝙩"
   }
 
   dimension: encrypted_token {
