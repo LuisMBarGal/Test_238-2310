@@ -31,6 +31,62 @@ view: ndt_looker_user {
   }
 }
 
+# If necessary, uncomment the line below to include explore_source.
+# include: "looker_test_lmbg.model.lkml"
+
+view: ndt_looker_user_version {
+  derived_table: {
+    explore_source: user {
+      column: first_name {}
+      column: last_name {}
+      column: id {}
+      column: models_dir {}
+      column: version_set_id {}
+      column: versions { field: version_set.versions }
+      column: version_id { field: version_set.id }
+      column: version_count { field: version_set.count }
+      column: count {}
+      filters: {
+        field: user.models_dir
+        value: "-NULL"
+      }
+    }
+  }
+  dimension: first_name {
+    description: ""
+  }
+  dimension: last_name {
+    description: ""
+  }
+  dimension: id {
+    description: ""
+    type: number
+  }
+  dimension: models_dir {
+    description: ""
+  }
+  dimension: version_set_id {
+    description: ""
+    type: number
+  }
+  dimension: versions {
+    description: ""
+  }
+  dimension: version_id {
+    description: ""
+    type: number
+  }
+  dimension: version_count {
+    description: ""
+    type: number
+  }
+  dimension: count {
+    description: ""
+    type: number
+  }
+}
+
+
 # view: ndt_looker_user {
 #   # Or, you could make this view a derived table, like this:
 #   derived_table: {
